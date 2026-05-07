@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frontline Love — Partner With Purpose</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  @media print {
+    body { margin: 0; }
+    .no-print { display: none; }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #f5f0e8;
+    color: #111;
+    max-width: 8.5in;
+    margin: 0 auto;
+  }
+
+  .flyer {
+    width: 8.5in;
+    min-height: 11in;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* HEADER */
+  .header {
+    background: #111;
+    color: #fff;
+    padding: 2.4rem 2.8rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 200px; height: 100%;
+    background: #c8963c;
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 0.9;
+  }
+
+  .org-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #c8963c;
+    margin-bottom: 0.6rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    max-width: 68%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-headline em {
+    font-style: italic;
+    color: #e8c06b;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 1rem;
+    max-width: 65%;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* URGENT BAND */
+  .band {
+    background: #c8963c;
+    color: #111;
+    padding: 0.7rem 2.8rem;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .band-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #111;
+    flex-shrink: 0;
+  }
+
+  /* BODY */
+  .body {
+    padding: 2.4rem 2.8rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 1rem;
+  }
+
+  /* REASON BLOCKS */
+  .reasons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .reason {
+    border-top: 3px solid #111;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .reason-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: #e8e0d0;
+    line-height: 1;
+  }
+
+  .reason:first-child .reason-num { color: #111; }
+  .reason:first-child { border-color: #c8963c; }
+
+  .reason-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.25;
+  }
+
+  .reason-body {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.65;
+    margin-top: 0.3rem;
+  }
+
+  .tag {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin-top: 0.4rem;
+    width: fit-content;
+  }
+
+  .tag.gold { background: #c8963c; color: #111; }
+
+  /* STAT STRIP */
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1.5px solid #111;
+  }
+
+  .stat {
+    padding: 1.2rem 1.4rem;
+    border-right: 1.5px solid #111;
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #111;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: #666;
+    margin-top: 0.3rem;
+    line-height: 1.4;
+  }
+
+  /* CTA BOTTOM */
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: #111;
+    margin: 0 -2.8rem -2.4rem;
+    padding: 1.8rem 2.8rem;
+  }
+
+  .cta-left {
+    flex: 1;
+  }
+
+  .cta-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #c8963c;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+  }
+
+  .cta-url {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+    word-break: break-all;
+    margin-top: 0.3rem;
+  }
+
+  .qr-wrap {
+    background: #fff;
+    padding: 10px;
+    flex-shrink: 0;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #qrcode canvas, #qrcode img {
+    display: block;
+  }
+
+  .print-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    z-index: 999;
+  }
+
+  .print-btn:hover { background: #c8963c; color: #111; }
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
+
+<div class="flyer">
+
+  <div class="header">
+    <div class="org-name">Frontline Love &nbsp;✦&nbsp; Business Partner Program</div>
+    <div class="header-headline">Your donation feeds a kid.<br><em>Your customers will know it.</em></div>
+    <div class="header-sub">
+      Frontline Love is seeing record demand. Rural and small-community schools across the country are running short — and we need business partners who want to do well <em>and</em> do good at the same time.
+    </div>
+  </div>
+
+  <div class="band">
+    <span class="band-dot"></span>
+    Businesses that donate get more than a tax receipt — here's how
+  </div>
+
+  <div class="body">
+
+    <div>
+      <div class="section-label">Three reasons to partner with us</div>
+      <div class="reasons">
+
+        <div class="reason">
+          <div class="reason-num">01</div>
+          <div class="reason-title">Feed a kid. For real.</div>
+          <div class="reason-body">
+            Your donation directly fills weekend meal totes and school pantries for children in rural communities that no government program reaches. Every dollar stays local.
+          </div>
+          <div class="tag gold">Mission impact</div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-num">02</div>
+          <div class="reason-title">A deduction that can become revenue.</div>
+          <div class="reason-body">
+            Yes, you get the tax write-off. But businesses that publicly champion a cause consistently earn greater customer loyalty and repeat spend. Generosity is good marketing.
+          </div>
+          <div class="tag">Tax + ROI</div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-num">03</div>
+          <div class="reason-title">Put your name on something that matters.</div>
+          <div class="reason-body">
+            Frontline Love will acknowledge your business as a partner. That association builds the kind of reputation money usually can't buy — trust in your community.
+          </div>
+          <div class="tag">Brand reputation</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">9 of 19</div>
+        <div class="stat-label">Counties with the highest food insecurity rates in the US are rural — Feeding America</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">No trip.</div>
+        <div class="stat-label">We deliver to schools directly. Kids get fed where they already are, every single day.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Of donations go to program operations. We run lean so every dollar reaches a child.</div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <div class="cta-left">
+        <div class="cta-eyebrow">Donate now</div>
+        <div class="cta-headline">Scan to make your donation.<br>Takes less than two minutes.</div>
+        <div class="cta-url">zeffy.com/en-US/donation-form/every-kid-eats</div>
+      </div>
+      <div class="qr-wrap">
+        <div id="qrcode"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://www.zeffy.com/en-US/donation-form/every-kid-eats",
+    width: 90,
+    height: 90,
+    colorDark: "#111111",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+</body>
+</html>
